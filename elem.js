@@ -1,13 +1,20 @@
 class Elem{
-    constructor(szuloElem){
+    #allapot;
+    constructor(szuloElem, id){
+        this.id=id;
+        this.#allapot=true;
         szuloElem.append("<div class='elem' <p> </p> </div>");
         this.divElem = $("article div:last-child");
 
-        this.pElem = thid.divElem.children("p");
+        this.pElem = this.divElem.children("p");
 
         this.divElem.on("click", ()=> {
-            //this.setElem("x");
+            if(this.#allapot){
             this.EsemenyTrigger()
+            } 
+            this.#allapot=false;
+            //this.setElem("x");
+            
         });
         }
         setElem(ertek){
